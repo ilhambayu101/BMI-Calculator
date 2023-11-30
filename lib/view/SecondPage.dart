@@ -56,6 +56,7 @@ class _IMTPageState extends State<IMTPage> {
               children: [
                 Center(
                   child: Card(
+                    color: Color(0xFF202137),
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: TableCalendar(
@@ -118,6 +119,7 @@ class _IMTPageState extends State<IMTPage> {
                   children: [
                     Expanded(
                       child: Card(
+                        color: Color(0xFF202137),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16),
                           child: Column(
@@ -155,9 +157,11 @@ class _IMTPageState extends State<IMTPage> {
                                     onLongPressUp: _stopWeightDecrement,
                                     child: FloatingActionButton(
                                         heroTag: "wbtndecrement",
+                                        shape: CircleBorder(),
+                                        backgroundColor: Colors.blue,
                                         onPressed: wdecremnt,
                                         mini: true,
-                                        child: Icon(Icons.remove),
+                                        child: Icon(Icons.remove, color: Colors.white),
                                     ),
                                   ),
                                   SizedBox(width: 18),
@@ -166,9 +170,11 @@ class _IMTPageState extends State<IMTPage> {
                                     onLongPressUp: _stopWeightIncrement,
                                     child: FloatingActionButton(
                                         heroTag: "wbtnincrement",
+                                        shape: CircleBorder(),
+                                        backgroundColor: Colors.blue,
                                         onPressed: wincremnt,
                                         mini: true,
-                                        child: Icon(Icons.add),
+                                        child: Icon(Icons.add, color: Colors.white),
                                     ),
                                   )
                                 ],
@@ -181,6 +187,7 @@ class _IMTPageState extends State<IMTPage> {
                     ),
                     Expanded(
                       child: Card(
+                        color: Color(0xFF202137),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16),
                           child: Column(
@@ -218,9 +225,11 @@ class _IMTPageState extends State<IMTPage> {
                                     onLongPressUp: _stopHeightDecrement,
                                     child: FloatingActionButton(
                                       heroTag: "hbtndecrement",
+                                      shape: CircleBorder(),
+                                      backgroundColor: Colors.blue,
                                       onPressed: hdecrement,
                                       mini: true,
-                                      child: Icon(Icons.remove),
+                                      child: Icon(Icons.remove, color: Colors.white),
                                     ),
                                   ),
                                   SizedBox(width: 24),
@@ -229,9 +238,11 @@ class _IMTPageState extends State<IMTPage> {
                                     onLongPressUp: _stopHeightIncrement,
                                     child: FloatingActionButton(
                                       heroTag: "hbtnincrement",
+                                      shape: CircleBorder(),
+                                      backgroundColor: Colors.blue,
                                       onPressed: hincremnt,
                                       mini: true,
-                                      child: Icon(Icons.add),
+                                      child: Icon(Icons.add, color: Colors.white),
                                     ),
                                   )
                                 ],
@@ -253,6 +264,7 @@ class _IMTPageState extends State<IMTPage> {
                         child: ElevatedButton(
                             onPressed: addBMIRecord,
                             style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(Colors.blue),
                                 padding: MaterialStatePropertyAll(EdgeInsets.symmetric(vertical: 16))
                             ),
                             child: Text('Submit', style: Theme.of(context).textTheme.labelLarge)

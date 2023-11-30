@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:serasisehat/view/FirstPage.dart';
 
@@ -15,7 +16,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Aplikasi SerasiSehat',
       theme: ThemeData (
-          primarySwatch: Colors.blue,
           scaffoldBackgroundColor: Color(0xFF16172E),
           iconTheme: IconThemeData(
             color: Colors.white,

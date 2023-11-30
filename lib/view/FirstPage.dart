@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 import 'package:serasisehat/model/bmi.dart';
 import 'package:serasisehat/view/SecondPage.dart';
 
@@ -13,7 +13,7 @@ class FirstPage extends StatelessWidget {
             return MobilePage();
           }else if (constraints.maxWidth <= 800) {
             return TabletDesktopPage(gridCount: 3);
-          } else if (constraints.maxWidth <= 1100){
+          } else if (constraints.maxWidth <= 1150){
             return TabletDesktopPage(gridCount: 4);
           } else {
             return TabletDesktopPage(gridCount: 6);
@@ -48,6 +48,7 @@ class _MobilePageState extends State<MobilePage> {
               children: [
                 Center(
                   child: Card(
+                    color: Color(0xFF202137),
                     child: Padding(
                       padding: EdgeInsets.all(24),
                       child: Column(
@@ -125,6 +126,7 @@ class _MobilePageState extends State<MobilePage> {
                   children: [
                     Expanded(
                         child: Card(
+                          color: Color(0xFF202137),
                           child: Padding(
                             padding: EdgeInsets.symmetric(vertical: 24),
                             child: Column(
@@ -153,6 +155,7 @@ class _MobilePageState extends State<MobilePage> {
                         )),
                     Expanded(
                         child: Card(
+                          color: Color(0xFF202137),
                           child: Padding(
                             padding: EdgeInsets.symmetric(vertical: 24),
                             child: Column(
@@ -184,6 +187,7 @@ class _MobilePageState extends State<MobilePage> {
                 SizedBox(height: 24),
                 Center(
                   child: Card(
+                    color: Color(0xFF202137),
                     child: Padding(
                       padding: const EdgeInsets.all(24.0),
                       child: Column(
@@ -205,7 +209,7 @@ class _MobilePageState extends State<MobilePage> {
                           Container(
                             height: 200,
                             child: ListView.separated(
-                              separatorBuilder: (context, index) {return Divider();},
+                              separatorBuilder: (context, index) {return SizedBox(height: 8);},
                               itemCount: BMIList.length,
                               itemBuilder: (context, index) {
                                 //data reversed
@@ -231,8 +235,8 @@ class _MobilePageState extends State<MobilePage> {
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Expanded(
-                                          flex: 4,
+                                        Flexible(
+                                          flex: 1,
                                           child: Column(
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
@@ -247,12 +251,14 @@ class _MobilePageState extends State<MobilePage> {
                                                       sttsberat ? Icons.arrow_upward_rounded : Icons.arrow_downward_rounded,
                                                       color: sttsberat ? Colors.blue : Colors.red),
                                                   SizedBox(width: 4),
-                                                  Text(
-                                                    selisihBerat.abs().toStringAsFixed(1),
-                                                    style: TextStyle(
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: 16,
-                                                        color: sttsberat ? Colors.blue : Colors.red
+                                                  Expanded(
+                                                    child: Text(
+                                                      selisihBerat.abs().toStringAsFixed(1),
+                                                      style: TextStyle(
+                                                          fontWeight: FontWeight.bold,
+                                                          fontSize: 16,
+                                                          color: sttsberat ? Colors.blue : Colors.red
+                                                      ),
                                                     ),
                                                   )
                                                 ],
@@ -264,12 +270,15 @@ class _MobilePageState extends State<MobilePage> {
                                           flex: 1,
                                           child: Row(
                                             crossAxisAlignment: CrossAxisAlignment.end,
+                                            mainAxisAlignment: MainAxisAlignment.end,
                                             children: [
-                                              Text(bmi.beratBadan.toStringAsFixed(1), style: Theme.of(context).textTheme.titleLarge),
-                                              Text(' kg', style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 12
-                                              ))
+                                              Flexible(child: Text(bmi.beratBadan.toStringAsFixed(1), style: Theme.of(context).textTheme.titleLarge)),
+                                              Flexible(
+                                                child: Text(' kg', style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 12
+                                                )),
+                                              )
                                             ],
                                           ),
                                         )
@@ -295,7 +304,9 @@ class _MobilePageState extends State<MobilePage> {
       ),
 
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
+          shape: CircleBorder(),
+          backgroundColor: Colors.blue,
+          onPressed: () async {
           final updatedBMIList = await Navigator.push(context, MaterialPageRoute(
             builder: (context) {
               return SecondPage();
@@ -310,7 +321,7 @@ class _MobilePageState extends State<MobilePage> {
             });
           }
         },
-        child: Icon(Icons.add)
+        child: Icon(Icons.add, color: Colors.white)
       ),
     );
   }
@@ -346,6 +357,7 @@ class _TabletDesktopPageState extends State<TabletDesktopPage> {
                     Flexible(
                       flex: 2,
                       child: Card(
+                        color: Color(0xFF202137),
                         child: Padding(
                           padding: EdgeInsets.all(24),
                           child: Column(
@@ -421,8 +433,9 @@ class _TabletDesktopPageState extends State<TabletDesktopPage> {
                     ),
                     Expanded(
                       child: Card(
+                        color: Color(0xFF202137),
                         child: Padding(
-                          padding: EdgeInsets.symmetric(vertical: 63),
+                          padding: EdgeInsets.symmetric(vertical: 58),
                           child: Column(
                             children: [
                               Text('Weight (kg)', style: Theme.of(context).textTheme.labelLarge),
@@ -450,8 +463,9 @@ class _TabletDesktopPageState extends State<TabletDesktopPage> {
                     ),
                     Expanded(
                       child: Card(
+                        color: Color(0xFF202137),
                         child: Padding(
-                          padding: EdgeInsets.symmetric(vertical: 63),
+                          padding: EdgeInsets.symmetric(vertical: 58),
                           child: Column(
                             children: [
                               Text('Height (Cm)', style: Theme.of(context).textTheme.labelLarge),
@@ -482,6 +496,7 @@ class _TabletDesktopPageState extends State<TabletDesktopPage> {
                 SizedBox(height: 24),
                 Center(
                   child: Card(
+                    color: Color(0xFF202137),
                     child: Padding(
                       padding: const EdgeInsets.all(24.0),
                       child: Column(
@@ -599,6 +614,8 @@ class _TabletDesktopPageState extends State<TabletDesktopPage> {
       ),
 
       floatingActionButton: FloatingActionButton(
+        shape: CircleBorder(),
+        backgroundColor: Colors.blue,
         onPressed: () async {
           final updatedBMIList = await Navigator.push(context, MaterialPageRoute(
             builder: (context) {
@@ -614,7 +631,7 @@ class _TabletDesktopPageState extends State<TabletDesktopPage> {
             });
           }
         },
-        child: Icon(Icons.add),
+        child: Icon(Icons.add, color: Colors.white),
         mini: true,
       ),
     );
