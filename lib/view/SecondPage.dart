@@ -44,7 +44,8 @@ class _IMTPageState extends State<IMTPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Rekam BMI/IMT'),
+        iconTheme: IconThemeData(color: Colors.white),
+        title: Text('Rekam BMI/IMT', style: TextStyle(color: Colors.white)),
         backgroundColor: Color(0xFF16172E),
         elevation: 0,
       ),
